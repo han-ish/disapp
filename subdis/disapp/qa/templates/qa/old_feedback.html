@@ -1,0 +1,74 @@
+<head>
+  <title>DisApp-Risk Analyser</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+ <style>
+ line
+{
+line-height: 40px;
+}
+ </style>
+<body>
+<style>
+.other-color{
+    background: deepskyblue
+  }
+  h1 {
+    color: black;
+}
+.footer-widgets {
+    padding: 10px 0;
+}
+.jumbotron { min-height:0px; }
+  </style>
+<div  class="container ">
+
+  <div   class="jumbotron cotainer ">
+    <h1><center>Feedback</center></h1>      
+   </div>
+
+<form name="feedback" action="/qa/signout/" method="POST">
+	{% csrf_token %}
+ <h1> Is this app useful? </h1>
+
+
+
+<label class="radio-inline"><input type="radio" name="choice1" value="Definitely not" required/>Definitely not  </label>
+<label class="radio-inline"><input type="radio" name="choice1" value="Maybe" required/>Maybe </label>
+<label class="radio-inline"><input type="radio" name="choice1" value="Definitely yes" required/>Definitely yes </label>
+<input type="hidden" name="id1" value="1" />
+<h1> Is this app easy to use? </h1>
+<label class="radio-inline"><input type="radio" name="choice2" value="Definitely not" required/>Definitely not  </label>
+<label class="radio-inline"><input type="radio" name="choice2" value="Somewhat" required/>Somewhat </label>
+<label class="radio-inline"><input type="radio" name="choice2" value="Definitely yes" required/>Definitely yes </label>
+<input type="hidden" name="id2" value="2" />
+
+
+<h1> Would you recommend this app to other people? </h1>
+
+
+<label class="radio-inline"><input type="radio" name="choice3" value="Definitely not" required/>Definitely not  </label>
+<label class="radio-inline"><input type="radio" name="choice3" value="Maybe" required/>Maybe </label>
+<label class="radio-inline"><input type="radio" name="choice3" value="Definitely yes" required/>Definitely yes </label>
+<input type="hidden" name="id1" value="1" />
+<input type="hidden" name="id3" value="3" />
+
+
+<h1> Please give any other feedback or suggestions: </h1>
+
+
+<input type="hidden" name="id4" value="4" />
+
+
+
+<input type="textarea"maxlength="500" name="text">
+<div align ="center">
+<button type="submit" class="btn btn-danger">Submit</button>
+</div>
+</body>
+</html>
+

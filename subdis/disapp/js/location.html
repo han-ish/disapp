@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>This is a js test</title>
+<script type="text/javascript">
+function two(){
+	alert("you clicked the bottom text");
+}
+</script>
+<script src="one.js"></script>
+<script src="geolocation.js"></script>
+</head>
+<body>
+<p><a href="#" onClick="one();">Top Text</a></p>
+<p><a href="javascript:two();">Bottom Text</a></p>
+<form action="" method="post">
+<input type="text" id="geoField" value="">
+<input type="button" id="geoSwitch" value="submit" onClick="getCurrentGeolocation();"return false">
+</form>
+</body>
+</html>

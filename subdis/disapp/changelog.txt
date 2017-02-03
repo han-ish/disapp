@@ -1,0 +1,4 @@
+Add the respective hosts in ALLOWED_HOSTS in settings.py
+Changing from mod_wsgi to gunicorn
+
+

@@ -1,0 +1,61 @@
+
+<html lang="en">
+<head>
+  <title>Login</title>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://disapp.000webhostapp.com/master/location.js"></script>
+    <script src="https://disapp.000webhostapp.com/master/validator.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.other-color{
+    background: deepskyblue
+  }
+  h1 {
+    color: lightcoral;
+}
+  </style>
+<div  class="container">
+  <div   class="jumbotron other-color">
+    <h1>DissApp Analyser</h1>      
+    <p>Analyse the dengue risk</p>
+ 
+</div>
+</head>
+<body>
+ 
+<div class="container">
+ 
+  <form name="login" data-toggle="validator" action="/qa/disclaimer/" method="POST">
+	{% csrf_token %}
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+      <div class="help-block with-errors">
+    </div>
+   
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pswd" name="pswd" placeholder="Enter password" required>
+    </div>
+    <div class="checkbox">
+  <label><input type="checkbox" name="rem" id="remember_me" name="remember_me" value="1" checked>Remember Me</label>
+</div>
+    <button type="submit" class="btn btn-info">Login</button>
+     
+     <br>
+     <br>
+     </form>
+    <!--<a href="https://139.59.209.26/qa/signup/"><button  class="btn btn-info">Sign Up</button></a> -->
+	<a href="/qa/signup/"><input type="button" class="btn btn-info" value="Sign Up" /></a>
+    <script type="text/javascript">
+          check();
+       
+   
+ 
+   
+  </body>
+</html>

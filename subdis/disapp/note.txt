@@ -1,0 +1,7 @@
+Add the allowed hosts in settings.py
+Change the MIDDLEWARE to MIDDLEWARE_CLASSES
+Install the libwsgi module for apache
+Turn on SECURE_SSL_REDIRECT
+Try gunicorn instead of mod_wsgi
+http://djangodeployment.com/2016/11/30/how-to-setup-apache-with-gunicorn/
+

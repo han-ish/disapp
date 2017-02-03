@@ -1,0 +1,105 @@
+<html>
+<head>
+  <title>Feedback</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+ <style>
+ line
+{
+line-height: 40px;
+}
+ </style>
+<body>
+<style>
+
+.other-color{
+    background: DarkRed
+  }
+  h1 {
+    color: white;
+}
+h2{
+color: black;
+}
+.footer-widgets {
+    padding: 10px 0;
+}
+.jumbotron {
+    padding: 0.5em 0.6em;
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1.2em;
+        .btn {
+            padding: 0.5em;
+        }
+    }
+}
+
+  </style>
+<div  class="container ">
+
+  <div   class="jumbotron container other-color ">
+	<span class="text-success"><h1 style="color:white;">Feedback</h1></span>      
+   </div>
+<div class="container">
+<form name="feedback" action="/qa/signout/" method="POST">
+	{% csrf_token %}
+	<div class="form-group">
+
+{% for question in questions %}
+
+ <h2> {{ question.name }}</h2>
+
+{% for answer in question.answers %}
+
+<label class="radio-inline"><input type="radio" name="choice{{ question.id }}" value="{{ answer }}" required/>{{ answer }} </label>
+
+<!-- <label class="radio-inline"><input type="radio" name="choice1" value="Maybe" required/>Maybe </label>
+<label class="radio-inline"><input type="radio" name="choice1" value="Definitely yes" required/>Definitely yes </label> -->
+
+	{% endfor %}
+<input type="hidden" name="id{{question.id}}" value="{{ question.id }}" />
+
+{% endfor %}
+
+<!-- <h1> Is this app easy to use? </h1>
+<label class="radio-inline"><input type="radio" name="choice2" value="Definitely not" required/>Definitely not  </label>
+<label class="radio-inline"><input type="radio" name="choice2" value="Somewhat" required/>Somewhat </label>
+<label class="radio-inline"><input type="radio" name="choice2" value="Definitely yes" required/>Definitely yes </label>
+<input type="hidden" name="id2" value="2" />
+
+
+<h1> Would you recommend this app to other people? </h1>
+
+
+<label class="radio-inline"><input type="radio" name="choice3" value="Definitely not" required/>Definitely not  </label>
+<label class="radio-inline"><input type="radio" name="choice3" value="Maybe" required/>Maybe </label>
+<label class="radio-inline"><input type="radio" name="choice3" value="Definitely yes" required/>Definitely yes </label>
+<input type="hidden" name="id1" value="1" />
+<input type="hidden" name="id3" value="3" />
+
+
+<h1> Please give any other feedback or suggestions: </h1>
+
+
+<input type="hidden" name="id4" value="4" />
+
+-->
+
+<div class="form-group">
+<textarea class="form-control" name="text" placeholder="Message"></textarea> </div><div class="form-group">
+</div>
+
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-danger">Submit</button>
+</div>
+</body>
+</html>
+

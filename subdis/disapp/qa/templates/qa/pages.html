@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>This is a test page</title>
+</head>
+<body>
+<h1> {{ question }} </h1>
+<!-- 
+{% for choice in question.choice_set.all %}
+<li> {{ choice.choice }} </li>
+{% endfor %}
+-->
+
+<div align="left"> <br/>
+<!-- <form name="page" action="/qa/page/{{ page_no }}/" method="POST">{% csrf_token %} -->
+<form name="page{{ question.id }}" action="{% url 'page' page_no %}" method="POST">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+<input type="radio" name="choice" value="{{ choice.choice }}" id="{{choice.id}}" required /> {{ choice.choice }}<br/>
+{% endfor %}
+<input type="submit" value="next">
+<p>{{ pre_choice }}</p>
+</form>
+</div>
+
+
+</body>
+</html>
+

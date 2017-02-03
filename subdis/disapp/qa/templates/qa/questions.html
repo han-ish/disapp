@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>DisApp-Risk Analyser</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+	.other-color{
+    background: DarkRed
+  }
+  h1 {
+    color: black;
+}
+h2{
+color: black;
+}
+.footer-widgets {
+    padding: 10px 0;
+}
+.jumbotron {
+    padding: 0.5em 0.6em;
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1.2em;
+        .btn {
+            padding: 0.5em;
+        }
+    }
+}
+  </style>
+<div  class="container">
+  <!-- <div   class="jumbotron other-color">
+    <h2>DissApp Analyser</h2>      
+    <h2>Analyse the dengue risk</h2>  -->
+  <div align="right">
+ <!-- <a href="/qa/signout/"><button type="button" class="btn btn-danger">Logout</button></a></div> -->
+</div>
+</div>
+</div>
+
+</head>
+ 
+<body>
+
+<div class="container">
+	<form name="questions" action="/qa/question/{{ page_no }}/" method="POST">
+	{% csrf_token %} 
+	<ul>
+		<h2> {{ question.name }} </h2>
+		<br/>
+			{% for answer in question.answers %}
+			<h4><p><input type="radio" name="choice"  id="{{ question.id }}" value="{{ answer }}" required />  {{ answer }}  </p></h4>
+			{% endfor %}
+
+		<input type="hidden" name="id" value="{{ question.id }}" />
+
+	<!-- </ul> -->
+	<!-- <p> {{ pre_answer }} {{ pre_id }}</p>
+
+	<p> sum val : {{ sum_val }} sess val : {{ sess_val }}</p> -->
+
+
+	<!-- <input type="submit" value="Next" class="btn btn-info" /> -->
+
+	<div class="form-group">
+	<button type="submit" class="btn btn-success">Next</button>
+	</div>
+	</ul>
+	</form>
+</div>
+</body>
+</html>
+

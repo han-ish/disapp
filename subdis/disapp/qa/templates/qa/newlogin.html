@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>New Login</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'admin/css/dashboard.css' %}" />
+<Script type="text/javascript" src="{% static 'qa/getlocation.js' %}">
+</script>
+</head>
+<body onload="getLoginGeolocation();">
+
+ <!-- Header -->
+    <div id="header">
+        <div id="branding">
+        
+<h1 id="site-name">DisApp</h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+                Welcome,
+                <strong> {{ user }}</strong>.
+            
+            
+               
+                
+                    
+                    
+                
+                
+                <a href="#">Change password</a> /
+                
+                <a href="#">Log out</a>
+            
+        </div>
+        
+        
+        
+    </div>
+    <!-- END Header -->
+<form name="login" action="/qa/disclaimer/" method="POST">
+{% csrf_token %}
+<center> <input type="text" id="geoField"  placeholder="Lat Lon" name="gpslocation" />
+<input type="button" style="align:right" value="GPS"/> </center>
+<center> {{ form.as_p }} </center>
+<center> <input type="submit" value="submit" onClick="getUser();" /> </center>
+</form>
+</body>
+</html>
+

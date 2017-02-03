@@ -1,0 +1,104 @@
+<head>
+  <title>Login</title>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://disapp.000webhostapp.com/master/location.js"></script>
+   <script src="https://disapp.000webhostapp.com/master/validator.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+#filter {
+    display: none;
+}
+.other-color{
+    background: DarkRed
+  }
+  h1 {
+    color: black;
+}
+h2{
+color:white;
+}
+h3{
+color:Thistle;
+}
+h4{
+	color:red;
+}
+.jumbotron {
+    padding: 0.5em 0.6em;
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1.2em;
+        .btn {
+            padding: 0.5em;
+        }
+    }
+}
+  </style>
+<div  class="container">
+  <div   class="jumbotron other-color">
+    <h2>DisApp-Login</h2>      
+ 
+</div>
+<script>
+function hel(){
+    $('#filter').show();
+      $('#filter').html("AaA");
+      }else{ // else the tag shouldn't be visible
+      $('#filter').hide();
+}
+</script>
+</head>
+<body onload="javascript:getCurrentGeolocation()">
+ 
+<div class="container">
+ 
+  <form name="login" data-toggle="validator" action="/qa/disclaimer/" method="POST">
+	{% csrf_token %}
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>     <div class="help-block with-errors">
+    </div>
+   
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" name="pswd" placeholder="Enter password" required>
+    </div>
+
+	<p style="color:red;"> {{ error }} </p>
+<div>
+ <script type="text/javascript">
+          //check();
+       //hel();
+   
+ </script>
+  <h4 ><span class="label label-primary" ID="filter">some filter</span></h4>
+</div>
+ <div class="form-group">
+      <input type="hidden"  class="form-control" id="location" name="location" placeholder="lat lon">
+    </div>
+
+	<p style="color:#d41414;">  </p>
+   <div class="form-group">
+<div class="checkbox">
+  <label><input type="checkbox" name="rem" id="remember_me" value="1" checked>Remember Me</label>
+</div>
+    <button type="submit" class="btn btn-info">Login</button>
+     
+     <br>
+     <br>
+     </form>
+    <!-- <a href="/qa/signup/"><button  class="btn btn-info">Sign Up</button></a> -->
+
+	<h4>If you are not yet registered please signup</h4> 
+	<a href="/qa/signup/"><input type="button" class="btn btn-info" value="Sign Up" /></a>
+   
+   
+  </body>
+</html>
+

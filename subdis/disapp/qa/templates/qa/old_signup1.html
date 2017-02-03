@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+  <title>User Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://disapp.000webhostapp.com/master/location.js"></script>
+    <script src="https://disapp.000webhostapp.com/master/validator.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.other-color{
+    background: deepskyblue
+  }
+  h1 {
+    color: lightcoral;
+}
+  </style>
+<div  class="container">
+  <div   class="jumbotron other-color">
+    <h1>DissApp Analyser</h1>      
+    <p>Analyse the dengue risk</p>
+ 
+</div>
+</head>
+<body onload="javascript:getCurrentGeolocation()">
+
+<div class="container">
+  
+  <form name="regi"  role="form" data-toggle="validator" action="/qa/signupp/" method="POST">
+	{% csrf_token %} 
+ <div class="form-group">
+      <label for="name">Location:</label>
+      <input type="hidden"  class="form-control" id="location"  name="location" placeholder="lat lon">
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="first_name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" data-error="Invalid email address" required> 
+     <div class="help-block with-errors" style="color:#d41414;">{{ error }}</div>
+
+   <div class="form-group">
+      <label for="pswd">Password:</label>
+      <input type="password" name="pswd" class="form-control" id="pswd" name="pswd" placeholder="Enter your new password" required>
+       <div class="help-block">Minimum of 6 characters</div>
+       
+      </div>
+    <div class="form-group">
+      <label for="pswd">Confirm Password:</label>
+      <input type="password" class="form-control" id="cnfpswd" placeholder="Repeat your new password" data-match="#pswd" data-match-error="Whoops, these don't match" required><div class="help-block with-errors">
+    </div>
+     
+   <div class="form-group">
+   <label for="lan">Language:</label>
+   <br>
+   <select name="cars" id="language" name="language">
+    <option value="EN">English</option>
+   
+  </select>
+
+     
+    
+    
+  </div>
+  
+    
+ <div class="form-group">
+      <label for="mobileno">Mobile Number:</label>
+      <input type="text" class="form-control" id="mobile_number" placeholder="Enter your mobile number" required>
+   </div>
+    <div class="form-group">
+      <label for="org">Institutional/organizational affiliation (if any):</label>
+      <input type="text" class="form-control" id="org" name="orga" placeholder="Enter institutional / organizational name">
+    </div>
+ 
+    <div class="form-group">
+      <label for="org">Pin code of your usual residence (home, hostel, rented flat, etc):</label>
+      <input type="text" class="form-control" id="pin" name="pin" placeholder="Enterpin code of your usual residence " required>
+    </div>
+   <button type="submit" class="btn btn-info">Sign Up</button></a>
+     </form>
+    
+    
+    
+
+
+  </body>
+</html>
+

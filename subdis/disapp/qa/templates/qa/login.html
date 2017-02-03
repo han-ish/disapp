@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Login</title>
+{% load static %}
+<script src="{% static 'qa/getlocation.js' %}"></script>
+ 
+
+</head>
+<body>
+<form name="form"  action="/qa/disclaimer/" method="POST" >
+{% csrf_token %}
+<div style="max-width:470px;">
+
+<center>
+	<input type="text" id="geoField" style="margin-left:20%;" placeholder="Lat Lon" name="gpslocation" require/>
+</center>
+
+<input type="button" style="align:right" value="GPS" onClick="getLoginGeolocation();">
+
+<!--
+<center> <input type="text" style="margin-left:20%;" placeholder="user" name="user" /></center>
+
+</div><br>
+-->
+<li>
+<center>
+	<select name="usergroup" id="user" size="1">
+		<option value="citizen">Citizen</option>
+		<option value="student">Student</option>
+		<option value="socialworker">Social Worker</option>
+		<option value="publichealth">Pubic Health Professional</option>
+		<option value="researcher">Researcher</option>
+	</select>
+</center>
+
+
+<center>
+	<input type="text" style="margin-left:20%;" placeholder="foo@example.com" name="email"/>
+</center>
+
+<!-- <input type="submit" value="submit" onClick="getCurrentGeolocation();"> -->
+<!-- <input type="submit" value="test" onClick="getLocation();""> --->
+</li>
+<!-- <div style="max-width:470px;">
+<center> <input type="password" style="margin-left:20%;" placeholder="password" 
+name="password" /></center> -->
+
+</div><br>
+<div style="max-width:470px;">
+<center> <button style="background-color:#4285F4;height:35px;width:80%;" type="submit" value="Enter" ><p>Click</p>
+</div>
+</form>
+</body></html>
+

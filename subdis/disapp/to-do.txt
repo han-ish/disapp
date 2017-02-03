@@ -1,0 +1,9 @@
+1) Join the questions with the choices	[done]
+2) Make a radio button to answer	[done]
+3) Take care of the form details	[doing]
+4) Make a test				[not initiated]
+5) Read about static, js, css		[done]
+5) Make the session			[doing]
+6) Get the data from forms		[doing]
+7) Validate forms			[doing]
+
