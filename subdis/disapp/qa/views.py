@@ -16,7 +16,8 @@ def signup(request):
 def signin(request):
 	"""This function will take care of rendering the signin page"""
 
-	return render(request, 'qa/signin.html')
+	#return render(request, 'qa/signin.html')
+	return render(request, 'qa/new__signin.html')
 
 def signout(request):
 	"""This function will take care of rendering the signout page and uploading the feedback to backend"""
@@ -55,16 +56,20 @@ import requests, json
 
 #import logging
 # should enable logging
-def signin_now(request):
+def signin_check(request):
 	"""This function will take care of rendering the disclaimer page and also checking for authentication"""
 
 
 	email = request.POST.get("email", "invalid")
 	pswd = request.POST.get("pswd", "pass")
 	location = request.POST.get("location", "0.0")
-	request.session["loc"] = location
+	request.session["loc"] = location.replace(" ", ",")	# trying a replace
 	validate_url = "http://139.59.13.7/userservice/uservalidation/"
 	data = {'email' : email, 'pswd' : pswd, 'remember_me' : 1}
+
+	#f = open("locations.txt", "w")
+	#f.write("hello world")
+	#f.close()
 
 	try:
 		validate_res = requests.post(validate_url, json=data)
@@ -74,7 +79,7 @@ def signin_now(request):
 		# saving token
 
 		request.session["token"] = token_validated
-	except Exception, e:
+	except Exception as e:
 
 		error = "Invalid email id  or password"
 
@@ -114,13 +119,13 @@ def signupp(request):
 	pswd = request.POST.get("pswd", "unknown")
 	first_name = request.POST.get("first_name", "")
 
-	location = request.POST.get("location", "")
+	location = request.POST.get("location", "0.0")
 
 	mob_no = request.POST.get("mobile", "")
 
 	org = request.POST.get("org", "NA")
 
-	request.session["loc"] = location
+	request.session["loc"] = location.replace(" ", ",")
 
 	pin = request.POST.get("pin", "")
 
@@ -150,7 +155,7 @@ def signupp(request):
 
 
 
-	except Exception, e:
+	except Exception as e:
 
 
 		error = "email id  already exist"
@@ -167,20 +172,21 @@ def fetch_question(request):
         first_name = request.POST.get("first_name", "")
 
         # creating the user and accepting token
-	validate_url = "http://139.59.13.7/userservice/uservalidation/"
+	#validate_url = "http://139.59.13.7/userservice/uservalidation/"
 
-	data = {'email' : email, 'pswd' : pswd, 'remember_me' : 1}
+	#data = {'email' : email, 'pswd' : pswd, 'remember_me' : 1}
 
 	try:
-		validate_res = requests.post(validate_url, json=data)
+		#validate_res = requests.post(validate_url, json=data)
 
-        	data = {'email' : email, 'pswd' :pswd, 'details' : {'first_name' : first_name}}
-		validate_data = json.loads(validate_res.content)
-        	token_validated = validate_data['responseData']['content']['X-Authorization-Token']
-
+        	#data = {'email' : email, 'pswd' :pswd, 'details' : {'first_name' : first_name}}
+		#validate_data = json.loads(validate_res.content)
+        	#token_validated = validate_data['responseData']['content']['X-Authorization-Token']
+		
+		token_validated = request.session["token"]
         	# fetching the questionnaire id
 
-	except Exception, e:
+	except Exception as e:
 		return HttpResponse("something went wrong " + str(e))
 
 	location = request.session["loc"]
@@ -192,6 +198,11 @@ def fetch_question(request):
         question_id = question_data['responseData']['questionnaire'][0]['id']
 
 	question_list_url = "http://139.59.13.7/questionnaire/%s/?language=en&location=%s" %(question_id, location)
+
+
+	#print(location)	# testing for location send
+
+
 	data = {'language' : 'en'}
 	question_list_res = requests.get(question_list_url, data, headers=header_field)
 	question_list_data = json.loads(question_list_res.content)
@@ -235,7 +246,7 @@ def question_now(request, page_no):
 
 			request.session["sum_val"] = int(request.session["sum_val"]) + int(sum_val)
 
-	except Exception, e:
+	except Exception as e:
 
 		pre_answer = request.POST.get("choice", "")
 

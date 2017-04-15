@@ -1,0 +1,198 @@
+﻿html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#body {
+    padding: 10px;
+    padding-bottom: 60px;
+}
+
+#footer, #push {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    color: #ffffff;
+    /*background-color:#73b2e0*/
+}
+
+#container2 {
+    width: 100%;
+    margin: 5%;
+}
+
+.divShadow {
+    position: relative;
+    left: 18%;
+    width: 50%;
+    height: 100px;
+    margin-left: 20px;
+    background-color: white;
+    box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+}
+
+.cardHighlighter {
+    width: 2px;
+    height: inherit;
+    background-color: blue;
+}
+
+
+
+/* ******** New CSS ****** */
+body {
+    /*overflow: hidden;*/
+}
+
+    body > .container {
+        padding: 60px 15px 0;
+    }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+    .footer > .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+@font-face {
+    font-family: JosefinSans;
+    src: url(../JosefinSans-ThinItalic.ttf);
+}
+
+#pageTitle {
+    font-family: JosefinSans;
+    color: #333;
+    margin-top: -10px;
+}
+
+.apcog-footer {
+    margin-top: 20px;
+}
+
+.apcog-logo {
+    width: 2.7%;
+}
+
+
+#login-form {
+    margin-top: 10%;
+}
+
+
+td, th {
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+    td[id^="action_"] > button {
+        border-radius: 50%;
+        padding: 4px 9px;
+    }
+
+
+#myList {
+    margin-top: 5px;
+}
+
+#tabarea {
+    /*overflow-y: auto;*/
+    margin-top: -20px;
+}
+
+#map-canvas {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#mosMap {
+    height: 250px;
+}
+
+#cagh-logo {
+    /*margin-top: 6px;
+    margin-left: -58px;*/
+    padding-right: 15px;
+    width: 10%;
+}
+
+#signout {
+    margin-top: -42px;
+    margin-right: -76px;
+    /*border-radius: 50%;*/
+}
+
+
+#myList .nav-pills > li.active > a, #myList .nav-pills > li.active > a:focus, #myList .nav-pills > li.active > a:hover {
+    color: crimson;
+    background-color: transparent;
+    border: 1px solid crimson;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0px;
+}
+
+
+#ovitrapTable_wrapper,
+#localTable_wrapper,
+#sensorTable_wrapper,
+#registeredUsersTable_wrapper {
+    top: 30px;
+}
+
+#ovitrapTable,
+#localTable,
+#sensorTable,
+#registeredUsersTable {
+    height: 100%;
+}
+
+#ovitrapTable_wrapper {
+    left: -60px;
+}
+
+#localTable_wrapper {
+    left: -100px;
+}
+
+.loading-div {
+    visibility: hidden;
+    z-index: 998;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    /*background: #333;*/
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+    .loading-div i {
+        position: fixed; /* or absolute */
+        top: 47%;
+        left: 47%;
+        color: #E91E63;
+    }

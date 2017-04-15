@@ -16,7 +16,7 @@ urlpatterns = [
 		url(r'^signin/$', views.signin, name='signin'),
 		#url(r'^signinn/', views.signin_now, name='signin_now'),
 
-		url(r'^disclaimer/$', views.signin_now, name='signin_now'),
+		url(r'^disclaimer/$', views.signin_check, name='signin_check'),
 
 		url(r'^claim/$', views.claim, name='claim'),
 		url(r'^signupp/$', views.signupp, name='signupp'),

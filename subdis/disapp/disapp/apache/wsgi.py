@@ -11,7 +11,7 @@ import os
 
 import sys
 
-path="/root/python/django/subdis_update2/subdis/disapp/disapp/settings.py"
+path="/root/python/disapp/subdis/disapp/disapp/settings.py"
 
 if path not in sys.path:
 	sys.path.append(path)

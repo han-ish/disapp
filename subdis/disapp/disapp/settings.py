@@ -27,7 +27,7 @@ SECRET_KEY = 'g+mv9mp@w77xsanmy6g)z$e+v7d&#2c&2o_r-j&cz#bv**&nc8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [u"139.59.209.26"] # make sure you allow hosts here
+ALLOWED_HOSTS = [u"139.59.34.215", u"disapp.cagh.in"] # make sure you allow hosts here
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [	#change this to MIDDLEWARE_CLASSES
-    'django.middleware.security.SecurityMiddleware',
+    #'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = [	#change this to MIDDLEWARE_CLASSES
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-SECURE_SSL_REDIRECT = True 	#Turn this on to enable ssl
+SECURE_SSL_REDIRECT = False 	#Turn this on to enable ssl
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
